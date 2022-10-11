@@ -17,45 +17,53 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Model dengan hyperparameter default
-model_default = DecisionTreeClassifier()
-model_default = model_default.fit(X_train, y_train)
+# hasil prediksi training set
+y_pred_train = model_DT.predict(X_train)
 
-# Model dengan tuning hyperparameter
-model_DT = DecisionTreeClassifier(criterion='entropy', max_depth=None, max_leaf_nodes=None,  random_state=None)
-model_DT = model_DT.fit(X_train, y_train)
+# hasil prediksi test set
+y_pred = model_DT.predict(X_test)
+
+# Train set score
+print("Train Accuracy   :", metrics.accuracy_score(y_train, y_pred_train))
+print("Train Precission :", metrics.precision_score(y_train, y_pred_train))
+print("Train Recall     :", metrics.recall_score(y_train, y_pred_train), '\n')
+
+# Test set score
+print("Test Accuracy   :", metrics.accuracy_score(y_test, y_pred))
+print("Test Precission :", metrics.precision_score(y_test, y_pred))
+print("Test Recall     :", metrics.recall_score(y_test, y_pred))
 ------------------
 
 [0;31m[0m
 [0;31mValueError[0mTraceback (most recent call last)
-[0;32m<ipython-input-20-9251af194b72>[0m in [0;36m<module>[0;34m[0m
-[1;32m      1[0m [0;31m# Model dengan hyperparameter default[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      2[0m [0mmodel_default[0m [0;34m=[0m [0mDecisionTreeClassifier[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 3[0;31m [0mmodel_default[0m [0;34m=[0m [0mmodel_default[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mX_train[0m[0;34m,[0m [0my_train[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      4[0m [0;34m[0m[0m
-[1;32m      5[0m [0;31m# Model dengan tuning hyperparameter[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m<ipython-input-20-24d9056ec664>[0m in [0;36m<module>[0;34m[0m
+[1;32m      6[0m [0;34m[0m[0m
+[1;32m      7[0m [0;31m# Train set score[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 8[0;31m [0mprint[0m[0;34m([0m[0;34m"Train Accuracy   :"[0m[0;34m,[0m [0mmetrics[0m[0;34m.[0m[0maccuracy_score[0m[0;34m([0m[0my_train[0m[0;34m,[0m [0my_pred_train[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0mprint[0m[0;34m([0m[0;34m"Train Precission :"[0m[0;34m,[0m [0mmetrics[0m[0;34m.[0m[0mprecision_score[0m[0;34m([0m[0my_train[0m[0;34m,[0m [0my_pred_train[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0mprint[0m[0;34m([0m[0;34m"Train Recall     :"[0m[0;34m,[0m [0mmetrics[0m[0;34m.[0m[0mrecall_score[0m[0;34m([0m[0my_train[0m[0;34m,[0m [0my_pred_train[0m[0;34m)[0m[0;34m,[0m [0;34m'\n'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/usr/local/lib/python3.7/dist-packages/sklearn/tree/_classes.py[0m in [0;36mfit[0;34m(self, X, y, sample_weight, check_input, X_idx_sorted)[0m
-[1;32m    940[0m             [0msample_weight[0m[0;34m=[0m[0msample_weight[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    941[0m             [0mcheck_input[0m[0;34m=[0m[0mcheck_input[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 942[0;31m             [0mX_idx_sorted[0m[0;34m=[0m[0mX_idx_sorted[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    943[0m         )
-[1;32m    944[0m         [0;32mreturn[0m [0mself[0m[0;34m[0m[0;34m[0m[0m
+[0;32m/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py[0m in [0;36maccuracy_score[0;34m(y_true, y_pred, normalize, sample_weight)[0m
+[1;32m    209[0m [0;34m[0m[0m
+[1;32m    210[0m     [0;31m# Compute accuracy for each possible representation[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 211[0;31m     [0my_type[0m[0;34m,[0m [0my_true[0m[0;34m,[0m [0my_pred[0m [0;34m=[0m [0m_check_targets[0m[0;34m([0m[0my_true[0m[0;34m,[0m [0my_pred[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    212[0m     [0mcheck_consistent_length[0m[0;34m([0m[0my_true[0m[0;34m,[0m [0my_pred[0m[0;34m,[0m [0msample_weight[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    213[0m     [0;32mif[0m [0my_type[0m[0;34m.[0m[0mstartswith[0m[0;34m([0m[0;34m"multilabel"[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/usr/local/lib/python3.7/dist-packages/sklearn/tree/_classes.py[0m in [0;36mfit[0;34m(self, X, y, sample_weight, check_input, X_idx_sorted)[0m
-[1;32m    201[0m [0;34m[0m[0m
-[1;32m    202[0m         [0;32mif[0m [0mis_classification[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 203[0;31m             [0mcheck_classification_targets[0m[0;34m([0m[0my[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    204[0m             [0my[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mcopy[0m[0;34m([0m[0my[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    205[0m [0;34m[0m[0m
+[0;32m/usr/local/lib/python3.7/dist-packages/sklearn/metrics/_classification.py[0m in [0;36m_check_targets[0;34m(y_true, y_pred)[0m
+[1;32m     82[0m     [0my_pred[0m [0;34m:[0m [0marray[0m [0;32mor[0m [0mindicator[0m [0mmatrix[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     83[0m     """
+[0;32m---> 84[0;31m     [0mcheck_consistent_length[0m[0;34m([0m[0my_true[0m[0;34m,[0m [0my_pred[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     85[0m     [0mtype_true[0m [0;34m=[0m [0mtype_of_target[0m[0;34m([0m[0my_true[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     86[0m     [0mtype_pred[0m [0;34m=[0m [0mtype_of_target[0m[0;34m([0m[0my_pred[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/usr/local/lib/python3.7/dist-packages/sklearn/utils/multiclass.py[0m in [0;36mcheck_classification_targets[0;34m(y)[0m
-[1;32m    195[0m         [0;34m"multilabel-sequences"[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    196[0m     ]:
-[0;32m--> 197[0;31m         [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m"Unknown label type: %r"[0m [0;34m%[0m [0my_type[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    198[0m [0;34m[0m[0m
-[1;32m    199[0m [0;34m[0m[0m
+[0;32m/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py[0m in [0;36mcheck_consistent_length[0;34m(*arrays)[0m
+[1;32m    332[0m         raise ValueError(
+[1;32m    333[0m             [0;34m"Found input variables with inconsistent numbers of samples: %r"[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 334[0;31m             [0;34m%[0m [0;34m[[0m[0mint[0m[0;34m([0m[0ml[0m[0;34m)[0m [0;32mfor[0m [0ml[0m [0;32min[0m [0mlengths[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    335[0m         )
+[1;32m    336[0m [0;34m[0m[0m
 
-[0;31mValueError[0m: Unknown label type: 'continuous'
-ValueError: Unknown label type: 'continuous'
+[0;31mValueError[0m: Found input variables with inconsistent numbers of samples: [92, 81]
+ValueError: Found input variables with inconsistent numbers of samples: [92, 81]
 
