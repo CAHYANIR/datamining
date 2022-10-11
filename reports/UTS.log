@@ -1,0 +1,61 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "/usr/local/lib/python3.7/dist-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/usr/local/lib/python3.7/dist-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/usr/local/lib/python3.7/dist-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/lib/python3.7/asyncio/base_events.py", line 587, in run_until_complete
+    return future.result()
+  File "/usr/local/lib/python3.7/dist-packages/nbclient/client.py", line 664, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "/usr/local/lib/python3.7/dist-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.7/dist-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Model dengan hyperparameter default
+model_default = DecisionTreeClassifier()
+model_default = model_default.fit(X_train, y_train)
+
+# Model dengan tuning hyperparameter
+model_DT = DecisionTreeClassifier(criterion='entropy', max_depth=None, max_leaf_nodes=None,  random_state=None)
+model_DT = model_DT.fit(X_train, y_train)
+------------------
+
+[0;31m[0m
+[0;31mValueError[0mTraceback (most recent call last)
+[0;32m<ipython-input-20-9251af194b72>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# Model dengan hyperparameter default[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mmodel_default[0m [0;34m=[0m [0mDecisionTreeClassifier[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mmodel_default[0m [0;34m=[0m [0mmodel_default[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mX_train[0m[0;34m,[0m [0my_train[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;31m# Model dengan tuning hyperparameter[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.7/dist-packages/sklearn/tree/_classes.py[0m in [0;36mfit[0;34m(self, X, y, sample_weight, check_input, X_idx_sorted)[0m
+[1;32m    940[0m             [0msample_weight[0m[0;34m=[0m[0msample_weight[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    941[0m             [0mcheck_input[0m[0;34m=[0m[0mcheck_input[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 942[0;31m             [0mX_idx_sorted[0m[0;34m=[0m[0mX_idx_sorted[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    943[0m         )
+[1;32m    944[0m         [0;32mreturn[0m [0mself[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.7/dist-packages/sklearn/tree/_classes.py[0m in [0;36mfit[0;34m(self, X, y, sample_weight, check_input, X_idx_sorted)[0m
+[1;32m    201[0m [0;34m[0m[0m
+[1;32m    202[0m         [0;32mif[0m [0mis_classification[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 203[0;31m             [0mcheck_classification_targets[0m[0;34m([0m[0my[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    204[0m             [0my[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mcopy[0m[0;34m([0m[0my[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    205[0m [0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.7/dist-packages/sklearn/utils/multiclass.py[0m in [0;36mcheck_classification_targets[0;34m(y)[0m
+[1;32m    195[0m         [0;34m"multilabel-sequences"[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    196[0m     ]:
+[0;32m--> 197[0;31m         [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m"Unknown label type: %r"[0m [0;34m%[0m [0my_type[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    198[0m [0;34m[0m[0m
+[1;32m    199[0m [0;34m[0m[0m
+
+[0;31mValueError[0m: Unknown label type: 'continuous'
+ValueError: Unknown label type: 'continuous'
+
