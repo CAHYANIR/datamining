@@ -1,0 +1,1218 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>DECITION TREE (Tugas 6) &#8212; Penambangan Data</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Penambangan Data</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown-notebooks.html">
+   Notebooks with MyST Markdown
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tugas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tugas_1.html">
+   DISSIMILARITY (Tugas 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tugas_2.html">
+   DISKIRTISASI (Tugas 2)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tugas_3.html">
+   K-NN (Tugas 3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tugas_4.html">
+   NAIVE BAYES GAUSSIAN (Tugas 4)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="UTS.html">
+   ANALISA DATA MENGGUNAKAN KNN DAN DECISION TREE (UTS)
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/CAHYANIR/datamining/gh-pages?urlpath=tree/_sources/Tugas_6.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/CAHYANIR/datamining/blob/gh-pages/_sources/Tugas_6.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/CAHYANIR/datamining"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/CAHYANIR/datamining/issues/new?title=Issue%20on%20page%20%2FTugas_6.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Tugas_6.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>DECITION TREE (Tugas 6)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="decition-tree-tugas-6">
+<h1>DECITION TREE (Tugas 6)<a class="headerlink" href="#decition-tree-tugas-6" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>      <span class="c1"># library algoritma Decision Tree</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span> <span class="c1"># library split data</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>                          <span class="c1"># library evaluation metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>    <span class="c1"># library laporan klasifikasi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset_url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/CAHYANIR/data/main/dataR2.csv&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dataset_url</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-694aedf3-9d47-4805-b57e-76974e4fc063">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>BMI</th>
+      <th>Glucose</th>
+      <th>Insulin</th>
+      <th>HOMA</th>
+      <th>Leptin</th>
+      <th>Adiponectin</th>
+      <th>Resistin</th>
+      <th>MCP.1</th>
+      <th>Classification</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>48</td>
+      <td>23.500000</td>
+      <td>70</td>
+      <td>2.707</td>
+      <td>0.467409</td>
+      <td>8.8071</td>
+      <td>9.702400</td>
+      <td>7.99585</td>
+      <td>417.114</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>83</td>
+      <td>20.690495</td>
+      <td>92</td>
+      <td>3.115</td>
+      <td>0.706897</td>
+      <td>8.8438</td>
+      <td>5.429285</td>
+      <td>4.06405</td>
+      <td>468.786</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>82</td>
+      <td>23.124670</td>
+      <td>91</td>
+      <td>4.498</td>
+      <td>1.009651</td>
+      <td>17.9393</td>
+      <td>22.432040</td>
+      <td>9.27715</td>
+      <td>554.697</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>68</td>
+      <td>21.367521</td>
+      <td>77</td>
+      <td>3.226</td>
+      <td>0.612725</td>
+      <td>9.8827</td>
+      <td>7.169560</td>
+      <td>12.76600</td>
+      <td>928.220</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>86</td>
+      <td>21.111111</td>
+      <td>92</td>
+      <td>3.549</td>
+      <td>0.805386</td>
+      <td>6.6994</td>
+      <td>4.819240</td>
+      <td>10.57635</td>
+      <td>773.920</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-694aedf3-9d47-4805-b57e-76974e4fc063')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-694aedf3-9d47-4805-b57e-76974e4fc063 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-694aedf3-9d47-4805-b57e-76974e4fc063');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/drive/MyDrive/datamining/tugas/
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/drive/MyDrive/datamining/tugas
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 116 entries, 0 to 115
+Data columns (total 10 columns):
+ #   Column          Non-Null Count  Dtype  
+---  ------          --------------  -----  
+ 0   Age             116 non-null    int64  
+ 1   BMI             116 non-null    float64
+ 2   Glucose         116 non-null    int64  
+ 3   Insulin         116 non-null    float64
+ 4   HOMA            116 non-null    float64
+ 5   Leptin          116 non-null    float64
+ 6   Adiponectin     116 non-null    float64
+ 7   Resistin        116 non-null    float64
+ 8   MCP.1           116 non-null    float64
+ 9   Classification  116 non-null    int64  
+dtypes: float64(7), int64(3)
+memory usage: 9.2 KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-09271bdb-0bd2-4e63-8ccb-68056cb62514">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>BMI</th>
+      <th>Glucose</th>
+      <th>Insulin</th>
+      <th>HOMA</th>
+      <th>Leptin</th>
+      <th>Adiponectin</th>
+      <th>Resistin</th>
+      <th>MCP.1</th>
+      <th>Classification</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Age</th>
+      <td>1.000000</td>
+      <td>0.008530</td>
+      <td>0.230106</td>
+      <td>0.032495</td>
+      <td>0.127033</td>
+      <td>0.102626</td>
+      <td>-0.219813</td>
+      <td>0.002742</td>
+      <td>0.013462</td>
+      <td>-0.043555</td>
+    </tr>
+    <tr>
+      <th>BMI</th>
+      <td>0.008530</td>
+      <td>1.000000</td>
+      <td>0.138845</td>
+      <td>0.145295</td>
+      <td>0.114480</td>
+      <td>0.569593</td>
+      <td>-0.302735</td>
+      <td>0.195350</td>
+      <td>0.224038</td>
+      <td>-0.132586</td>
+    </tr>
+    <tr>
+      <th>Glucose</th>
+      <td>0.230106</td>
+      <td>0.138845</td>
+      <td>1.000000</td>
+      <td>0.504653</td>
+      <td>0.696212</td>
+      <td>0.305080</td>
+      <td>-0.122121</td>
+      <td>0.291327</td>
+      <td>0.264879</td>
+      <td>0.384315</td>
+    </tr>
+    <tr>
+      <th>Insulin</th>
+      <td>0.032495</td>
+      <td>0.145295</td>
+      <td>0.504653</td>
+      <td>1.000000</td>
+      <td>0.932198</td>
+      <td>0.301462</td>
+      <td>-0.031296</td>
+      <td>0.146731</td>
+      <td>0.174356</td>
+      <td>0.276804</td>
+    </tr>
+    <tr>
+      <th>HOMA</th>
+      <td>0.127033</td>
+      <td>0.114480</td>
+      <td>0.696212</td>
+      <td>0.932198</td>
+      <td>1.000000</td>
+      <td>0.327210</td>
+      <td>-0.056337</td>
+      <td>0.231101</td>
+      <td>0.259529</td>
+      <td>0.284012</td>
+    </tr>
+    <tr>
+      <th>Leptin</th>
+      <td>0.102626</td>
+      <td>0.569593</td>
+      <td>0.305080</td>
+      <td>0.301462</td>
+      <td>0.327210</td>
+      <td>1.000000</td>
+      <td>-0.095389</td>
+      <td>0.256234</td>
+      <td>0.014009</td>
+      <td>-0.001078</td>
+    </tr>
+    <tr>
+      <th>Adiponectin</th>
+      <td>-0.219813</td>
+      <td>-0.302735</td>
+      <td>-0.122121</td>
+      <td>-0.031296</td>
+      <td>-0.056337</td>
+      <td>-0.095389</td>
+      <td>1.000000</td>
+      <td>-0.252363</td>
+      <td>-0.200694</td>
+      <td>-0.019490</td>
+    </tr>
+    <tr>
+      <th>Resistin</th>
+      <td>0.002742</td>
+      <td>0.195350</td>
+      <td>0.291327</td>
+      <td>0.146731</td>
+      <td>0.231101</td>
+      <td>0.256234</td>
+      <td>-0.252363</td>
+      <td>1.000000</td>
+      <td>0.366474</td>
+      <td>0.227310</td>
+    </tr>
+    <tr>
+      <th>MCP.1</th>
+      <td>0.013462</td>
+      <td>0.224038</td>
+      <td>0.264879</td>
+      <td>0.174356</td>
+      <td>0.259529</td>
+      <td>0.014009</td>
+      <td>-0.200694</td>
+      <td>0.366474</td>
+      <td>1.000000</td>
+      <td>0.091381</td>
+    </tr>
+    <tr>
+      <th>Classification</th>
+      <td>-0.043555</td>
+      <td>-0.132586</td>
+      <td>0.384315</td>
+      <td>0.276804</td>
+      <td>0.284012</td>
+      <td>-0.001078</td>
+      <td>-0.019490</td>
+      <td>0.227310</td>
+      <td>0.091381</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-09271bdb-0bd2-4e63-8ccb-68056cb62514')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-09271bdb-0bd2-4e63-8ccb-68056cb62514 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-09271bdb-0bd2-4e63-8ccb-68056cb62514');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     Age        BMI  Glucose  Insulin      HOMA   Leptin  Adiponectin  \
+0     48  23.500000       70    2.707  0.467409   8.8071     9.702400   
+1     83  20.690495       92    3.115  0.706897   8.8438     5.429285   
+2     82  23.124670       91    4.498  1.009651  17.9393    22.432040   
+3     68  21.367521       77    3.226  0.612725   9.8827     7.169560   
+4     86  21.111111       92    3.549  0.805386   6.6994     4.819240   
+..   ...        ...      ...      ...       ...      ...          ...   
+111   45  26.850000       92    3.330  0.755688  54.6800    12.100000   
+112   62  26.840000      100    4.530  1.117400  12.4500    21.420000   
+113   65  32.050000       97    5.730  1.370998  61.4800    22.540000   
+114   72  25.590000       82    2.820  0.570392  24.9600    33.750000   
+115   86  27.180000      138   19.910  6.777364  90.2800    14.110000   
+
+     Resistin    MCP.1  Classification  
+0     7.99585  417.114               1  
+1     4.06405  468.786               1  
+2     9.27715  554.697               1  
+3    12.76600  928.220               1  
+4    10.57635  773.920               1  
+..        ...      ...             ...  
+111  10.96000  268.230               2  
+112   7.32000  330.160               2  
+113  10.33000  314.050               2  
+114   3.27000  392.460               2  
+115   4.35000   90.090               2  
+
+[116 rows x 10 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="c1"># Features</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>  <span class="c1"># Target variable</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hasil pemisahan X dan Y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(116, 9) 
+
+(116,)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span> <span class="c1"># split menjadi 80% training set and 20% test set</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Model dengan hyperparameter default</span>
+<span class="n">model_default</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">()</span>
+<span class="n">model_default</span> <span class="o">=</span> <span class="n">model_default</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Model dengan tuning hyperparameter</span>
+<span class="n">model_DT</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;entropy&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">max_leaf_nodes</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>  <span class="n">random_state</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">model_DT</span> <span class="o">=</span> <span class="n">model_DT</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># hasil prediksi training set</span>
+<span class="n">y_pred_train_default</span> <span class="o">=</span> <span class="n">model_default</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="c1"># hasil prediksi test set</span>
+<span class="n">y_pred_default</span> <span class="o">=</span> <span class="n">model_default</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Train set score</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Train Accuracy   :&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred_train_default</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Train Precission :&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred_train_default</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Train Recall     :&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred_train_default</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Test set score</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test Accuracy   :&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_default</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test Precission :&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_default</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test Recall     :&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_default</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train Accuracy   : 1.0
+Train Precission : 1.0
+Train Recall     : 1.0 
+
+Test Accuracy   : 0.7916666666666666
+Test Precission : 0.8181818181818182
+Test Recall     : 0.75
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># hasil prediksi training set</span>
+<span class="n">y_pred_train</span> <span class="o">=</span> <span class="n">model_DT</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="c1"># hasil prediksi test set</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model_DT</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Train set score</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Train Accuracy   :&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred_train</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Train Precission :&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred_train</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Train Recall     :&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred_train</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Test set score</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test Accuracy   :&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test Precission :&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test Recall     :&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train Accuracy   : 0.7608695652173914
+Train Precission : 0.7142857142857143
+Train Recall     : 0.75 
+
+Test Accuracy   : 0.7916666666666666
+Test Precission : 0.7692307692307693
+Test Recall     : 0.8333333333333334
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nama_label</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Tidak berpotensi diabetes&#39;</span><span class="p">,</span> <span class="s1">&#39;Berpotensi diabetes&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Classification Report Model dengan Hyperparameter Default:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_default</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="n">nama_label</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">Classification Report Model dengan Tuning Hyperparameter:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="n">nama_label</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Classification Report Model dengan Hyperparameter Default:
+
+                           precision    recall  f1-score   support
+
+Tidak berpotensi diabetes       0.82      0.75      0.78        12
+      Berpotensi diabetes       0.77      0.83      0.80        12
+
+                 accuracy                           0.79        24
+                macro avg       0.79      0.79      0.79        24
+             weighted avg       0.79      0.79      0.79        24
+
+
+
+Classification Report Model dengan Tuning Hyperparameter:
+
+                           precision    recall  f1-score   support
+
+Tidak berpotensi diabetes       0.77      0.83      0.80        12
+      Berpotensi diabetes       0.82      0.75      0.78        12
+
+                 accuracy                           0.79        24
+                macro avg       0.79      0.79      0.79        24
+             weighted avg       0.79      0.79      0.79        24
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">export_graphviz</span>
+<span class="kn">from</span> <span class="nn">six</span> <span class="kn">import</span> <span class="n">StringIO</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>  
+<span class="kn">import</span> <span class="nn">pydotplus</span>
+
+<span class="n">feature_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span><span class="s1">&#39;BMI&#39;</span><span class="p">,</span><span class="s1">&#39;Glucose	Insulin&#39;</span><span class="p">,</span><span class="s1">&#39;HOMA&#39;</span><span class="p">,</span><span class="s1">&#39;Leptin&#39;</span><span class="p">,</span><span class="s1">&#39;Adiponectin&#39;</span><span class="p">,</span><span class="s1">&#39;Resistin&#39;</span><span class="p">,</span><span class="s1">&#39;MCP.1&#39;</span><span class="p">,</span><span class="s1">&#39;Classification&#39;</span><span class="p">]</span>
+<span class="n">dot_data</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
+
+<span class="n">export_graphviz</span><span class="p">(</span><span class="n">model_default</span><span class="p">,</span>
+                <span class="n">out_file</span><span class="o">=</span><span class="n">dot_data</span><span class="p">,</span>  
+                <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">rounded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">special_characters</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">feature_names</span> <span class="o">=</span> <span class="n">feature_cols</span><span class="p">,</span>
+                <span class="n">class_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">])</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">pydotplus</span><span class="o">.</span><span class="n">graph_from_dot_data</span><span class="p">(</span><span class="n">dot_data</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>  
+<span class="n">graph</span><span class="o">.</span><span class="n">write_png</span><span class="p">(</span><span class="s1">&#39;tree_model_default.png&#39;</span><span class="p">)</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">create_png</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Tugas_6_14_0.png" src="_images/Tugas_6_14_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">export_graphviz</span>
+<span class="kn">from</span> <span class="nn">six</span> <span class="kn">import</span> <span class="n">StringIO</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>  
+<span class="kn">import</span> <span class="nn">pydotplus</span>
+
+<span class="n">feature_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span><span class="s1">&#39;BMI&#39;</span><span class="p">,</span><span class="s1">&#39;Glucose	Insulin&#39;</span><span class="p">,</span><span class="s1">&#39;HOMA&#39;</span><span class="p">,</span><span class="s1">&#39;Leptin&#39;</span><span class="p">,</span><span class="s1">&#39;Adiponectin&#39;</span><span class="p">,</span><span class="s1">&#39;Resistin&#39;</span><span class="p">,</span><span class="s1">&#39;MCP.1&#39;</span><span class="p">,</span><span class="s1">&#39;Classification&#39;</span><span class="p">]</span>
+<span class="n">dot_data</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
+
+<span class="n">export_graphviz</span><span class="p">(</span><span class="n">model_DT</span><span class="p">,</span>
+                <span class="n">out_file</span><span class="o">=</span><span class="n">dot_data</span><span class="p">,</span>  
+                <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">rounded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">special_characters</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">feature_names</span> <span class="o">=</span> <span class="n">feature_cols</span><span class="p">,</span>
+                <span class="n">class_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">])</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">pydotplus</span><span class="o">.</span><span class="n">graph_from_dot_data</span><span class="p">(</span><span class="n">dot_data</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>  
+<span class="n">graph</span><span class="o">.</span><span class="n">write_png</span><span class="p">(</span><span class="s1">&#39;tree_model_DT.png&#39;</span><span class="p">)</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">create_png</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Tugas_6_15_0.png" src="_images/Tugas_6_15_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">importance</span> <span class="o">=</span> <span class="n">model_default</span><span class="o">.</span><span class="n">feature_importances_</span> <span class="c1"># khusus model dengan hyperparamter default</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">importance</span><span class="p">):</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Feature:&#39;</span><span class="p">,</span> <span class="n">feature_cols</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;Score: &#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
+ 
+<span class="c1"># Membuat plit</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">feature_cols</span><span class="p">],</span> <span class="n">importance</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Feature: Age Score:  0.10078889151469797 %
+Feature: BMI Score:  0.15523573200992555 %
+Feature: Glucose	Insulin Score:  0.27589020313478524 %
+Feature: HOMA Score:  0.10661943319838058 %
+Feature: Leptin Score:  0.11373626373626365 %
+Feature: Adiponectin Score:  0.11222908599176346 %
+Feature: Resistin Score:  0.039858532272325435 %
+Feature: MCP.1 Score:  0.03369963369963374 %
+Feature: Classification Score:  0.06194222444222443 %
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/matplotlib/backends/backend_agg.py:214: RuntimeWarning: Glyph 9 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+/usr/local/lib/python3.7/dist-packages/matplotlib/backends/backend_agg.py:183: RuntimeWarning: Glyph 9 missing from current font.
+  font.set_text(s, 0, flags=flags)
+</pre></div>
+</div>
+<img alt="_images/Tugas_6_16_2.png" src="_images/Tugas_6_16_2.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Cahyani Reggita Bntari 200411100092<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
